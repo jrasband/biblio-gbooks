@@ -4,7 +4,7 @@
 ;;
 ;; Author: Joshua Rasband and contributors
 ;; URL: http://github.com/jrasband/biblio-gbooks
-;; Package-Requires: ((emacs "24.4") (biblio-core "0.2"))
+;; Package-Requires: ((emacs "24.4") (biblio-core "0.2") (let-alist "1.0.6") (seq "2.24") (compat "29.1.4.2"))
 ;; Version: 1.0
 ;; Keywords: bib, tex
 
@@ -20,7 +20,9 @@
 ;; https://developers.google.com/books/docs/v1/using#q
 
 ;;; Code:
-
+(require 'let-alist)
+(require 'seq)
+(require 'compat)
 (require 'biblio-core)
 
 (defgroup biblio-gbooks nil
@@ -92,9 +94,6 @@ COMMAND, ARG, MORE: See `biblio-backends'."
   "Start a Google Books search for QUERY, prompting if needed."
   (interactive)
   (biblio-lookup #'biblio-gbooks-backend query))
-
-;;;###autoload
-(defalias 'gbooks-lookup 'biblio-gbooks-lookup)
 
 (provide 'biblio-gbooks)
 ;;; biblio-gbooks.el ends here
