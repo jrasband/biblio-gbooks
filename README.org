@@ -1,0 +1,14 @@
+* biblio-gbooks.el
+# add links
+Google Books backend for biblio.el.
+
+The existing backends of biblio.el provide good coverage for pulling BibTeX references of peer-reviewed scientific articles, but don't have good coverage of fiction and non-fiction books. biblio-gbooks.el provides a Google Books backend for biblio.el which can pull BibTeX references directly from Google Books.
+
+# Although no API key is necessary to use this package, it might be a good idea to get an API key if you plan on getting large numbers of BibTeX reference from Google Books.
+** Installation
+1. Download ~biblio.el~ and require it in your ~init.el~
+2. Download ~biblio-gbooks.el~ and require it in your ~init.el~
+** Usage
+#+begin_example
+M-x biblio-gbooks-lookup
+#+end_example
