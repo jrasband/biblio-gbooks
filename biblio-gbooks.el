@@ -50,7 +50,9 @@
   "Prepare a Google Books search result ITEM for display."
   (let-alist item
     (list (cons 'doi .doi)
-          (cons 'year (substring .volumeInfo.publishedDate 0 4))
+          (cons 'year (if .volumeInfo.publishedDate
+			  (substring .volumeInfo.publishedDate 0 4)
+			"Unknown"))
           (cons 'title .volumeInfo.title)
           (cons 'authors (list "author"))
           (cons 'publisher .volumeInfo.publisher)
