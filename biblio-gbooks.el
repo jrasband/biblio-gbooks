@@ -7,15 +7,13 @@
 ;; Package-Requires: ((emacs "24.4") (biblio-core "0.2") (let-alist "1.0.6") (seq "2.24") (compat "29.1.4.2"))
 ;; Version: 1.0
 ;; Keywords: bib, tex
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;; This file is not part of GNU Emacs.
 
-;;; License:
-
-;; SPDX-License-Identifier: GPL-3.0-or-later
-
 ;;; Commentary:
-;; This code is based on biblio-arxiv.el
+;; This package adds a hook to `biblio-init-hook' that will enable a
+;; backend for Google Books. This code is based on biblio-arxiv.el.
 ;; More information on querying Google Books is available at:
 ;; https://developers.google.com/books/docs/v1/using#q
 
@@ -89,13 +87,12 @@ COMMAND, ARG, MORE: See `biblio-backends'."
     (`register (add-to-list 'biblio-backends #'biblio-gbooks-backend))))
 
 ;;;###autoload
-(add-hook 'biblio-init-hook #'biblio-gbooks-backend)
-
-;;;###autoload
 (defun biblio-gbooks-lookup (&optional query)
   "Start a Google Books search for QUERY, prompting if needed."
   (interactive)
   (biblio-lookup #'biblio-gbooks-backend query))
+
+(add-hook 'biblio-init-hook #'biblio-gbooks-backend)
 
 (provide 'biblio-gbooks)
 ;;; biblio-gbooks.el ends here
