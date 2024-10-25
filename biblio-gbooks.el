@@ -92,6 +92,7 @@ COMMAND, ARG, MORE: See `biblio-backends'."
   (interactive)
   (biblio-lookup #'biblio-gbooks-backend query))
 
+;;;###autoload
 (add-hook 'biblio-init-hook #'biblio-gbooks-backend)
 
 (provide 'biblio-gbooks)
